@@ -3,20 +3,23 @@ import { Link, Route, Routes } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
-import contacts from "../db/db.json"
 import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
 
-  console.log(contacts)
+
   
   //TODO: Load all contacts on useEffect when component first renders
 
-  useEffect((contacts) => {
-    return fetch('http://localhost:3333/list')
-    .then(data => data.json())
-  },[] );
+  useEffect(() => {
+    fetch("http://localhost:4000/contacts")
+      .then((res) => res.json())
+      .then((data) => setContacts(data))
+    }, []);
+
+
+  console.log("this is the names ", contacts)
 
 
   return (
@@ -24,16 +27,23 @@ export default function App() {
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
-          <li>Contacts List</li>
-          <li>Add New Contact</li>
+          {/* TODO: Make these links */} 
+          <li>
+            <Link to="/">DashBoard</Link>
+          </li>
+          <li>
+          <Link to="ContactsList">Contacts List</Link> 
+          </li>  
+           <Link to='ContactsAdd' >
+           <li>Add New Contact</li>
+           </Link>     
+          
         </ul>
       </nav>
       <main>
         <Routes>
-          <Route path="ContactsList"/>
-          <Route path="ContactsAdd"/>
-          <Route/>
+          <Route path="ContactsList" element={<ContactsList contacts={contacts}/>}/>
+          <Route path="ContactsAdd" element={<ContactsAdd contacts={contacts} />}/>
           {/* TODO: Add routes here  */}
         </Routes>
       </main>

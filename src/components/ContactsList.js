@@ -1,5 +1,8 @@
 import { useState } from "react"
+
 import { Link, useSearchParams } from "react-router-dom"
+
+
 
 function ContactsList(props) {
   
@@ -22,11 +25,20 @@ function ContactsList(props) {
               <p>
                 { /** TODO: Make a Link here to view contact */}
                 View
+                
               </p>
+              
+
             </li>
           )
         })}
       </ul>
+        {/* <main>
+              <Routes>
+                <Route path="ContactsView" element={<ContactsView />}/>
+                </Routes>
+        </main> */}
+
     </>
   )
 }
