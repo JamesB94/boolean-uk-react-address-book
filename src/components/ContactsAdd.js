@@ -12,6 +12,8 @@ function ContactsAdd(props) {
   // to this component so new contacts can be added to the
   // state
   const { setContacts, contacts } = props
+
+  
  
 
   //TODO: Implement controlled form
@@ -19,13 +21,21 @@ function ContactsAdd(props) {
 
   const handleSubmit =(e) => {
     e.preventDefault()
-    const contacts ={firstName,lastName,street,city }
+    const contact ={firstName,lastName,street,city }
+
+    setFirstName('')
+    setLastName ('')
+    setStreetName('')
+    setCityName('')
+
 
     fetch('http://localhost:4000/contacts', {
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify(contacts)
+      body: JSON.stringify(contact)
     })
+    // .then(response => response.json())
+    // .then(data => setContacts(data));
 
 
     //  console.log(contacts)
