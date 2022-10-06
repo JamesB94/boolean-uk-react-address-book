@@ -19,7 +19,7 @@ export default function App() {
     }, []);
 
 
-  console.log("this is the names ", contacts)
+  //console.log("this is the names ", contacts)
 
 
   return (
@@ -44,6 +44,8 @@ export default function App() {
         <Routes>
           <Route path="ContactsList" element={<ContactsList contacts={contacts}/>}/>
           <Route path="ContactsAdd" element={<ContactsAdd contacts={contacts} setContacts={setContacts} />}/>
+          <Route path="/contactsView/:id" element ={ <ContactsView /> } />
+
           {/* TODO: Add routes here  */}
         </Routes>
       </main>
