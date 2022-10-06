@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom"
 function ContactsView() {
   const [contact, setContact] = useState(false)
 
+  console.log('this is inside contact view',contact )
+
   const {id} = useParams()
 
   //TODO: Get the contact to load from the params and fetch.
@@ -11,7 +13,7 @@ function ContactsView() {
   //and update contact state
 
   useEffect(() => {
-    fetch("http://localhost:4000/contacts" +{id})
+    fetch("http://localhost:4000/contacts" + id)
       .then((res) => res.json())
       .then((data) => setContact(data))
     }, []);

@@ -9,6 +9,8 @@ function ContactsList(props) {
   //"contacts" must be passed as prop to this component
   const { contacts } = props
 
+  console.log('checking id in contact list number 1', contacts.firstName)
+
   return (
     <>
       <header>
@@ -17,6 +19,7 @@ function ContactsList(props) {
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
+          console.log('checking id in contact list number 2', contact.id)
           return (
             <li className="contact" key={index}>
               <p>
@@ -27,7 +30,8 @@ function ContactsList(props) {
                 {/* <Link to='/'>
                 View
                 </Link> */}
-                <Link to={'ContactsView'} >View</Link>
+                {/* <Link to={'ContactsView'} >View</Link> */}
+                <Link to={`ContactsView ${contact.id}` } >View</Link>
                 
               </p>
               
