@@ -24,7 +24,10 @@ function ContactsList(props) {
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}
+                {/* <Link to='/'>
                 View
+                </Link> */}
+                <Link to={'ContactsView'} >View</Link>
                 
               </p>
               
@@ -33,11 +36,10 @@ function ContactsList(props) {
           )
         })}
       </ul>
-        {/* <main>
-              <Routes>
+              {/* <Routes>
                 <Route path="ContactsView" element={<ContactsView />}/>
-                </Routes>
-        </main> */}
+              </Routes> */}
+        
 
     </>
   )
